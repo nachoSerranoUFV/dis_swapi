@@ -9,30 +9,44 @@
   <meta name="author" content="SitePoint">
 
   <link rel="stylesheet" href="css/styles.css?v=1.0">
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="./jquery.js"></script>
 
 </head>
 
 <body>
-    <input type="text" name="category" id="category">
-    <input type="number" name="value" id="value">
-    <button onclick="sendData()">Send Data</button>
-  <script type="text/javascript">
+        <input type="text" name="category" id="category">
+        <input type="number" name="element" id="element">
+        <button onclick="sendData()">Send Data</button>
 
-    var baseUrl = "https://swapi.co/api/people/1";
+  <script >
+
+    var baseUrl = "https://swapi.co/api/people/3";
     var category = document.getElementById('category').value;
-    var number = $('#value').val();
+    var number = window.jQuery('#element').val(); 
+
+    console.log(category, number);
     var fullUrl = baseUrl + category + '/' + number;
+
     function sendData() {
         $.ajax({
             type:"get",
             url:fullUrl,
             success: function( data) {
                 console.log(data);
+                document.getElementsByTagName('body')[0].append(data);
                 $('body').append(data);
             }
         });
     }
+    window.onload = function() {
+    if (window.jQuery) {  
+        // jQuery is loaded  
+        alert("Yeah!");
+    } else {
+        // jQuery is not loaded
+        alert("Doesn't Work");
+    }
+}
   </script>
 </body>
 </html>
