@@ -20,14 +20,15 @@
 
   <script >
 
-    var baseUrl = "https://swapi.co/api/people/3";
-    var category = document.getElementById('category').value;
+    var baseUrl = "https://swapi.co/api/";
+
+
+    function sendData() {
+        var category = document.getElementById('category').value;
     var number = window.jQuery('#element').val(); 
 
     console.log(category, number);
     var fullUrl = baseUrl + category + '/' + number;
-
-    function sendData() {
         $.ajax({
             type:"get",
             url:fullUrl,
