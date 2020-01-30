@@ -22,8 +22,8 @@
     var baseUrl = "https://swapi.co/api/people/1";
     var category = document.getElementById('category').value;
     var number = $('#value').val();
-    var fullUrl = baseUrl + category + '/' + number;
     function sendData() {
+        var fullUrl = baseUrl + category + '/' + number;
         $.ajax({
             type:"get",
             url:fullUrl,
