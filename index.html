@@ -13,20 +13,16 @@
 </head>
 
 <body>
-        <input type="text"  id="category" value="">
-        <input type="number"  id="element" value="">
-        <button onclick="sendData()">Send Data</button>
+    <input type="text" name="category" id="category">
+    <input type="number" name="value" id="value">
+    <button onclick="sendData()">Send Data</button>
+  <script type="text/javascript">
 
-  <script >
-
-    baseUrl = "https://swapi.co/api/";
-    
+    var baseUrl = "https://swapi.co/api/people/1";
+    var category = document.getElementById('category').value;
+    var number = $('#value').val();
     function sendData() {
-        var category = document.getElementById('category').value;
-        var number  = $('#element').val();
-
         var fullUrl = baseUrl + category + '/' + number;
-
         $.ajax({
             type:"get",
             url:fullUrl,
